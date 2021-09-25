@@ -1,9 +1,10 @@
 import React from 'react';
+import TableProjet from '../../components/TableProjet';
 
 function PartageProjet(props) {
     return (
         <div>
-            Projet partege ....
+            <TableProjet />
         </div>
     );
 }

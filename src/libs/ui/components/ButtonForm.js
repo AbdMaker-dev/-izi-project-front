@@ -7,7 +7,7 @@ function ButtonForm(props) {
     return (
         <Fragment>
             <Button variant="contained" onClick={props.onclick} disableElevation className={classes.bntStyle}>
-                LogIn
+                {props.text}
             </Button>
         </Fragment>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './libs/ui/app/home';
+import Home from './libs/ui/app/index';
 import Login from './libs/ui/auth/Login';
 import Singin from './libs/ui/auth/Singin';
 import {

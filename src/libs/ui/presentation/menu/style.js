@@ -4,6 +4,7 @@ import colors from '../../utils';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        width: '100%'
     },
     appBar: {
         background: colors.bl,

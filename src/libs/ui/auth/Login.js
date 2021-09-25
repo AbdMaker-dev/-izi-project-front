@@ -18,6 +18,7 @@ function Login() {
         console.log(email);
         console.log(password);
         const { token } = await AuthService.login(email, password);
+        console.log(token);
         if (token) {
             dispatch(logIn());
         }
@@ -44,7 +45,7 @@ function Login() {
                         <h2 className={classes.titre}>Login Form</h2>
                         <InputText text="Email" value={email} onChange={handleEmailChange} />
                         <InputPassword value={password} onChange={handlePasswordChange} />
-                        <ButtonForm onclick={handleClick} />
+                        <ButtonForm text="Login" onclick={handleClick} />
                     </form>
                 </div>
             </div>

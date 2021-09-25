@@ -5,7 +5,6 @@ import InputPassword from '../components/InputPassword';
 import InputText from '../components/InputText';
 import useStyles from './style';
 
-
 function Singin() {
     const classes = useStyles();
     return (
@@ -25,7 +24,7 @@ function Singin() {
                         <InputText text="Nom" />
                         <InputText text="Email" />
                         <InputPassword />
-                        <ButtonForm />
+                        <ButtonForm text="Singin" />
                     </form>
                 </div>
             </div>

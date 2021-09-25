@@ -27,7 +27,23 @@ const useCoponentsStyles = makeStyles((theme) => ({
         "&.Mui-focused": {
             color: 'black'
         }
+    },
+    appBar: {
+        width: '100%',
+    },
+    leftAppBar: {
+        float: 'left',
+        border: '1px solid black'
+    },
+    drawerwidth: {
+        color: colors.vr,
+        width: '240px',
+        paper: {
+            background: "blue",
+
+        }
     }
+
 }));
 
 export default useCoponentsStyles;

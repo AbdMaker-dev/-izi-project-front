@@ -15,6 +15,9 @@ class AuthService {
         }
         return response.data;
     }
+    logOut() {
+        localStorage.clear();
+    }
 }
 
 export default new AuthService();

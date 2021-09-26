@@ -23,6 +23,17 @@ const useCoponentsStyles = makeStyles((theme) => ({
             },
         }
     },
+    inptArea: {
+        width: '90%',
+        marginTop: '30px',
+        color: colors.bl,
+        '& .MuiOutlinedInput-root': {  // - The Input-root, inside the TextField-root
+            '&.Mui-focused fieldset': { // - Set the Input border when parent is focused 
+                borderColor: colors.vr,
+                borderWidth: '0.5px'
+            },
+        }
+    },
     cssLabel: {
         "&.Mui-focused": {
             color: 'black'

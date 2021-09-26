@@ -8,19 +8,18 @@ import useStyles from './style';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../core/redux/reducers/authReducer';
 
-function Login() {
+function Login(props) {
     const classes = useStyles();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
 
     const handleClick = async () => {
-        console.log(email);
-        console.log(password);
         const { token } = await AuthService.login(email, password);
         console.log(token);
         if (token) {
             dispatch(logIn());
+            props.history.push("/app");
         }
     }
     const handleEmailChange = (event) => {

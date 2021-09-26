@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import colors from '../utils';
+import { useSelector } from 'react-redux';
+import { selectProjets } from '../../core/redux/reducers/projetReducer';
 
 const style = makeStyles((theme) => ({
     root: {
@@ -29,7 +31,8 @@ const style = makeStyles((theme) => ({
         padding: '8px'
     },
     td: {
-        padding: '8px'
+        padding: '8px',
+        fontSize: '0.8em'
     }
 }));
 
@@ -37,6 +40,7 @@ const style = makeStyles((theme) => ({
 
 function TableProjet(props) {
     const classes = style();
+    const projets = useSelector(selectProjets)
 
     return (
         <div className={classes.root}>
@@ -49,11 +53,16 @@ function TableProjet(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className={classes.tr}>
-                        <td className={classes.td}>aaa</td>
-                        <td className={classes.td}>bbbb</td>
-                        <td className={classes.td}>ccc</td>
-                    </tr>
+                    {
+                        projets.map((elt) => (
+                            <tr className={classes.tr} key={elt.id}>
+                                <td className={classes.td}>{elt.libelle}</td>
+                                <td className={classes.td}>{
+                                    new Date(elt.dateCreation).toLocaleDateString()}</td>
+                                <td className={classes.td}>Open</td>
+                            </tr>
+                        ))
+                    }
                 </tbody>
             </table>
         </div>

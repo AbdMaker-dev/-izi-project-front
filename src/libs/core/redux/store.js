@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import reducer from './reducers/reducer';
+import projets from './reducers/projetReducer';
 import authReducer from './reducers/authReducer';
 
 export default configureStore({
     reducer: {
-        counter: reducer,
+        projets: projets,
         isLogin: authReducer
     },
 });

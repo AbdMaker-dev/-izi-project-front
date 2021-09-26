@@ -7,16 +7,22 @@ import InputText from '../components/InputText';
 import useStyles from './style';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../core/redux/reducers/authReducer';
+import { Alert } from '@material-ui/lab';
+
 
 function Login(props) {
     const classes = useStyles();
     const [email, setEmail] = useState('');
+    const [errorLog, setErrorLog] = useState(false);
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
 
     const handleClick = async () => {
-        const { token } = await AuthService.login(email, password);
-        console.log(token);
+        const { token, bad } = await AuthService.login(email, password);
+        if (bad) {
+            setErrorLog(true);
+            return;
+        }
         if (token) {
             dispatch(logIn());
             props.history.push("/app");
@@ -41,6 +47,9 @@ function Login(props) {
                 </div>
                 <div className={classes.div_right}>
                     <form className={classes.form}>
+                        {
+                            errorLog && (<Alert severity="error">Email ou Password incorrect!</Alert>)
+                        }
                         <h2 className={classes.titre}>Login Form</h2>
                         <InputText text="Email" value={email} onChange={handleEmailChange} />
                         <InputPassword value={password} onChange={handlePasswordChange} />

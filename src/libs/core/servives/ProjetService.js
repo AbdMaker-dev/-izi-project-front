@@ -5,16 +5,20 @@ const API_URL = 'http://localhost:8080/api/v1/';
 class ProjetService {
 
     async getAllProjet() {
-        console.log(authHeader());
         const response = await axios
             .get(API_URL + 'projets', { headers: authHeader() });
         return response.data;
     }
 
     async getAllSharedProjet() {
-        console.log(authHeader());
         const response = await axios
             .get(API_URL + 'sharedprojets', { headers: authHeader() });
+        return response.data;
+    }
+
+    async addProjet(data) {
+        const response = await axios
+            .post(API_URL + 'projets', data, { headers: authHeader() });
         return response.data;
     }
 }

@@ -9,9 +9,8 @@ import PartageProjet from './partageProjet/PartageProjet';
 import Profile from './profile/Profile';
 import MyDrawer from '../components/MyDrawer';
 import Menu from '../presentation/menu/Menu';
-
-
 import { makeStyles } from '@material-ui/core/styles';
+import DetailProjet from './detail/DetailProjet';
 
 
 const useStyle = makeStyles((theme) => ({
@@ -49,6 +48,7 @@ function Home(props) {
                         <Route path="/app/mes-projets" component={MesProjet} />
                         <Route path="/app/profil" component={Profile} />
                         <Route path="/app/partage-projets" component={PartageProjet} />
+                        <Route path="/app/detail/:id" component={DetailProjet} />
                     </Switch>
                 </div>
             </div>

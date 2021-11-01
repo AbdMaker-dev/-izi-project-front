@@ -13,6 +13,7 @@ import FolderOutlinedIcon from '@material-ui/icons/FolderOutlined';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import { Avatar } from '@material-ui/core';
+
 const useStyles = makeStyles({
     root: {
         width: '240px',
@@ -61,7 +62,7 @@ function MyDrawer() {
                     selected={selectedIndex === 0}
                     onClick={(event) => handleListItemClick(event, 0)}
                     classes={{ root: classes.itemList }}
-                    button component={Link} underline="none" to="/app/mes-projets" autoFocus="true">
+                    button component={Link} underline="none" to="/app/mes-projets">
                     <ListItemIcon>
                         <FolderOutlinedIcon />
                     </ListItemIcon>

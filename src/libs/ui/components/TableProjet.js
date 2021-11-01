@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import colors from '../utils';
 import { useSelector } from 'react-redux';
 import { selectProjets } from '../../core/redux/reducers/projetReducer';
+import { withRouter } from 'react-router';
 
 const style = makeStyles((theme) => ({
     root: {
@@ -42,6 +43,10 @@ function TableProjet(props) {
     const classes = style();
     const projets = useSelector(selectProjets)
 
+    const handlePushDetail = (id) => {
+        props.history.push("/app/detail/" + id);
+        // props.history.push("/app");
+    }
     return (
         <div className={classes.root}>
             <table className={classes.table}>
@@ -56,7 +61,7 @@ function TableProjet(props) {
                     {
                         projets.map((elt) => (
                             <tr className={classes.tr} key={elt.id}>
-                                <td className={classes.td}>{elt.libelle}</td>
+                                <td className={classes.td} onClick={() => handlePushDetail(elt.id)} >{elt.libelle}</td>
                                 <td className={classes.td}>{
                                     new Date(elt.dateCreation).toLocaleDateString()}</td>
                                 <td className={classes.td}>Open</td>
@@ -69,4 +74,4 @@ function TableProjet(props) {
     );
 }
 
-export default TableProjet;
+export default withRouter(TableProjet);
